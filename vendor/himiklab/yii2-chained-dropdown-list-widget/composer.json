@@ -1,0 +1,25 @@
+{
+    "name": "himiklab/yii2-chained-dropdown-list-widget",
+    "description": "Chained DropDownList widget for Yii2",
+    "keywords": ["yii2", "chained", "dropdown", "widget"],
+    "type": "yii2-extension",
+    "license": "MIT",
+    "support": {
+        "source": "https://github.com/himiklab/yii2-chained-dropdown-list-widget"
+    },
+    "authors": [
+        {
+            "name": "HimikLab",
+            "email": "himiklab@yandex.ru"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "*",
+        "bower-asset/chained": "1.0.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "himiklab\\chained\\": ""
+        }
+    }
+}

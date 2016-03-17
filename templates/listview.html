@@ -1,0 +1,48 @@
+<div class="container list-view box-wrapper bg-viewport">
+    <div class="row row-full-height">
+        <div class="col-sm-9 col-xs-12 left-view-port">
+            <div class="row row-full-height">
+                <!-- Project Image Gallery Thumbnails -->
+                <div class="gallery-thumbnails-wrapper">
+                    <a data-ng-href="{{item.project_slug}}" data-ng-repeat="item in data = (currentList|filter:is_featured:1)" ng-show="limit<=$index && $index<limit+6" class="wow fadeIn">
+                        <div class="gallery-wrapper">
+                            <div class="project-info-label">
+                                <p>{{item.project_title}}</p>
+                                <span>{{item.project_location}}</span>
+                            </div>
+                            <!-- /.project-info-label -->
+                            <div class="p-g-image-box" style="background-image: url('{{item.project_image}}')">
+                                <div class="gallery-thumbnails-layer"></div>
+                            </div>
+                        </div>
+                        <!-- /.gallery-wrapper -->
+                    </a>
+                </div>
+                <!-- /.gallery-thumbnails-wrapper -->
+                <div class="next-pre-button gallery-nav">
+                    <a ng-click="prvPage(6)" ng-hide="limit==0"><i class="fa fa-angle-left"></i></a>
+                    <a ng-click="nxtPage(6, data.length)" ng-hide="limit+6>=data.length"><i class="fa fa-angle-right"></i></a>
+                </div>
+            </div>
+        </div>
+        <!-- /.left-view-port -->
+        <div class="col-sm-3 list-view-port hidden-xs">
+            <div class="row row-full-height">
+                <div class="list-wrapper">
+                    <select id="page-changer" onchange="$(this).scope().pageChanger()" class="list-drop-down">
+                        <option ng-selected="type=='ongoing'" value="projects/ongoing">ONGOING</option>
+                        <option ng-selected="type=='upcoming'" value="projects/upcoming">UPCOMING</option>
+                        <option ng-selected="type=='completed'" value="projects/completed">COMPLETED</option>
+                    </select>
+                    <ul>
+                        <li><a ng-href="projects/{{type}}#residential">RESIDENTIAL</a></li>
+                        <li><a ng-href="projects/{{type}}#commercial">COMMERCIAL</a></li>
+                        <li><a ng-href="projects/{{type}}#">ALL</a></li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+        <!-- /.list-view-port -->
+    </div>
+</div>

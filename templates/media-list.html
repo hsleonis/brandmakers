@@ -1,0 +1,49 @@
+<div class="container list-view box-wrapper bg-viewport">
+    <div class="row row-full-height">
+        <div class="col-sm-9 col-xs-12 left-view-port">
+            <div class="row row-full-height">
+                <!-- Media Listing Page -->
+                <div class="media-list-wrapper">
+                    <div class="media-list-content" ng-scroll>
+                        <div class="media-item-box wow fadeInUp" data-ng-repeat="item in pageMenu" data-wow-delay="{{$index*0.3}}s">
+                            <div class="media-item-text">
+                                <a href="pages/media/{{item.page_slug}}">{{item.page_title}}</a>
+                            </div>
+                            <div class="media-item-btn">
+                                <a href="pages/media/{{item.page_slug}}">
+                                    <div class="media-read-btn">
+                                        VIEW ALL
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.media-list-wrapper -->
+
+            </div>
+        </div>
+        <!-- /.left-view-port -->
+        <div class="col-sm-3 list-view-port hidden-xs">
+            <div class="row row-full-height">
+                <div class="list-wrapper">
+                    <select id="page-changer" onchange="$(this).scope().pageChanger()" class="list-drop-down">
+                        <option ng-selected="page==option.page_data.page_slug" data-ng-repeat="option in pages" value="pages/{{option.page_data.page_slug}}">
+                            {{option.page_data.page_title}}
+                        </option>
+                    </select>
+                    <ul>
+                        <li ng-class="{'list-active':page==pageData.page_data.page_slug}">
+                            <a ng-href="pages/{{page}}">{{rootTitle}}</a>
+                        </li>
+                        <li data-ng-repeat="p in pageMenu" ng-class="{'list-active':p.page_slug==pageData.page_data.page_slug}">
+                            <a ng-href="pages/{{page}}/{{p.page_slug}}">{{p.page_title}}</a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+        <!-- /.list-view-port -->
+    </div>
+</div>

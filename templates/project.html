@@ -1,0 +1,113 @@
+<div class="container list-view box-wrapper bg-viewport">
+    <div class="row row-full-height">
+        <div class="col-sm-9 col-xs-12 left-view-port">
+            <div class="row row-full-height">
+                <!-- Project Main Viewport -->
+                <div class="project-main-view-wrapper" style="background-image: url('{{project.project_banner}}')">
+                    <!-- Global project nav -->
+                    <div class="projects-nav-wrapper">
+                        <ul class="projects-nav">
+                            <li data-target="#glance"><a ng-href="#glance">AT A GLANCE</a></li>
+                            <li data-target="#amenities"><a ng-href="#amenities">AMENITIES</a></li>
+                            <li data-target="#floor"><a ng-href="#floor">FLOOR PLANS</a></li>
+                            <li data-target="#gallery" class="active"><a ng-href="#gallery">GALLERY</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="all-project-pages">
+                        <div id="glance" class="tab-full glance">
+                            <div class="at-a-glance-wrapper wow fadeInDown" bind-unsafe-html="project.desc" ng-scroll></div>
+                        </div>
+                        <div id="amenities" class="tab-full specification">
+                            <div class="specification-wrapper">
+                                <div class="specification-content wow fadeInDown" bind-unsafe-html="project.spec" ng-scroll></div>
+                                <!-- /.specification-content -->
+                            </div>
+                            <!-- /.specification-wrapper -->
+
+                        </div>
+                        <div id="floor" class="tab-full floor-plans" data-featherlight-gallery data-featherlight-filter="div">
+                            <div data-ng-repeat="item in k=(project.images)" class="project-item col-sm-4" style="background-image: url('{{item.url}}')" ng-if="item.is_hover==1" data-featherlight="{{item.url}}">
+                            </div>
+                            <!-- /.project-item -->
+                        </div>
+                        <div id="gallery" class="tab-full project-gallery tab-on">
+
+                            <slick class="slick-wrapper" currentIndex="1" dots="false" infinite="true" speed="1000" touch-move="true" arrows="true" settings="slickConfig" draggable="true" fade="true">
+                                <div class="project-image slick-content" data-ng-repeat="item in data=(project.images|filter:is_gallery:1)" data-src="{{item.url}}" ng-if="item.is_gallery==1">
+                                    <div class="slick-image" style="background-image:url('{{item.url}}');"></div>
+                                </div>
+                            </slick>
+                            <div class="gallery-cover"></div>
+                            <div class="project-info-view projects-info">
+                                <div class="row">
+                                    <span class="minimize-btn"><i class="fa fa-minus"></i></span>
+                                    <p>{{project.title}}</p>
+                                    <a href="#glance">
+                                        <div class="project-explore p-absolute">READ MORE</div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="next-pre-button">
+                                <a href="#"><i class="fa fa-angle-left"></i></a>
+                                <a href="#"><i class="fa fa-angle-right"></i></a>
+                            </div>
+                            <div class="slick-thumbs">
+                                <div class="slick-item" ng-click="slickto($index)" style="background-image:url('{{item.url}}');" data-ng-repeat="item in data=(project.images)" ng-if="item.is_gallery==1"></div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- /.project-main-view-wrapper -->
+
+            </div>
+        </div>
+        <!-- /.left-view-port -->
+
+        <div class="col-sm-3 list-view-port hidden-xs">
+            <div class="row row-full-height">
+                <div class="list-wrapper">
+                    <select id="list-switcher" onchange="$(this).scope().listSwitcher()" class="list-drop-down">
+                        <option ng-selected="project.category!='ongoing' && project.category!='upcoming' && project.category!='completed'" value="">All</option>
+                        <option ng-selected="project.category=='Ongoing'" value="ongoing">Ongoing</option>
+                        <option ng-selected="project.category=='Upcoming'" value="upcoming">Upcoming</option>
+                        <option ng-selected="project.category=='Completed'" value="completed">Completed</option>
+                    </select>
+                    <div class="project-list-wrapper">
+                        <ul class="project-list-thumbnail">
+                            <li ng-class="{'active-project':item.project_slug==project.slug}" data-ng-repeat="item in data = (currentList)" ng-show="limit<=$index && $index<limit+6">
+                                <a data-ng-href="{{item.project_slug}}">
+                                    <div style="background-image: url('{{item.project_image}}')" class="thumbnail-img-box"></div>
+                                </a>
+                                <div class="thumbnail-lable">
+                                    <span class="lable-color">{{item.project_title}}</span>
+                                    <span>{{item.project_location}}</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="project-status">
+                        <p><span>{{curPage}}</span>/<span>{{projectPages}}</span></p>
+                        <p>
+                            <a ng-click="prvPage(6)" ng-hide="limit==0"><i class="fa fa-chevron-left"></i></a>
+                            <a ng-click="nxtPage(6, data.length)" ng-hide="limit+6>=data.length"><i class="fa fa-chevron-right"></i></a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.list-view-port -->
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="project-top-wrapper">
+            <span class="project-top-title">{{project.title}}</span>
+            <span class="project-top-location">{{project.project_location}}</span>
+        </div>
+    </div>
+</div>
+<div class="gallery-fake" data-ng-repeat="item in data=(project.images|filter:is_gallery:1)" ng-if="item.is_gallery==1" bgload>
+    <img src="{{item.url}}" />
+</div>

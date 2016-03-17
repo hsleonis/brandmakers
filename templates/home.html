@@ -1,0 +1,53 @@
+<div class="header header-overlay"></div>
+<div>
+    <div id="layerslider">
+        <!-- slide -->
+        <div class="ls-slide" data-ls="transition2d: 5;" ng-layer-slider data-ng-repeat="item in list" ng-if="item.is_featured">
+            <!-- slide background -->
+            <div class="ls-l ls-l-1" style="background-image: url('{{item.project_image_full}}')">
+            </div>
+            <div class="container ls-l ls-l-2">
+                <div class="project-info-view">
+                    <p>
+                        <span>{{item.project_title}}</span><br/>
+                        {{item.project_location}}
+                    </p>
+                    <a ng-href="{{item.project_slug}}">
+                        <div class="project-explore p-absolute">
+                            EXPLORE PROJECT
+                        </div>
+                    </a>
+                </div>
+                <!-- /.project-info-view -->
+            </div>
+        </div>
+    </div>
+    <div class="container home-view-area">
+        <div class="row row-full-height p-relative">
+            <div class="page-bottom-area d-flex">
+                <div class="right-bottom-box p-relative">
+                    <div class="row row-full-height">
+                        <div class="controls-board-wrapper p-absolute">
+                            <div class="next-pre-button main-slider-button">
+                                <span class="layer-left"><i class="fa fa-angle-left"></i></span>
+                                <span class="leyer-right"><i class="fa fa-angle-right"></i></span>
+                            </div>
+                            <!-- /.next-pre-button -->
+                            <div class="clearfix"></div>
+                            <div class="project-nav-wrapper">
+                                <span class="project-label">PROJECTS</span>
+                                <ul class="project-nav-ul">
+                                    <li><a ng-href="projects/ongoing">ONGOING</a></li>
+                                    <li><a ng-href="projects/upcoming">UPCOMING</a></li>
+                                    <li><a ng-href="projects/completed">COMPLETED</a></li>
+                                </ul>
+                            </div>
+                            <!-- /.project-nav-wrapper -->
+                        </div>
+                        <!-- /.controls-board-wrapper -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
