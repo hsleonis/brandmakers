@@ -3,7 +3,7 @@
         <div class="col-sm-9 col-xs-12 left-view-port">
             <div class="row row-full-height">
                 <!-- Project Image Gallery Thumbnails -->
-                <div class="gallery-thumbnails-wrapper">
+                <div class="gallery-thumbnails-wrapper" ng-scroll>
                     <a data-ng-href="{{item.project_slug}}" data-ng-repeat="item in data = (currentList|filter:is_featured:1)" ng-show="limit<=$index && $index<limit+6" class="wow fadeIn">
                         <div class="gallery-wrapper">
                             <div class="project-info-label">

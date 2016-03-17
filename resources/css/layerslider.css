@@ -926,6 +926,7 @@ body * .ls-container .ls-webkit-hack,
     height: 140px;
     float: left;
     font-size: 11px;
+    margin-bottom: 10px;
 }
 .project-list-ul span p {
     color: #261B0A;
@@ -953,7 +954,7 @@ body * .ls-container .ls-webkit-hack,
 }
 .slick-thumbs {
     bottom: 50px;
-    right: 65px;
+    right: 15px;
     position: absolute;
     z-index: 201;
 }
@@ -966,12 +967,10 @@ body * .ls-container .ls-webkit-hack,
     background-size: cover;
     float: left;
     cursor: pointer;
-    -webkit-filter: sepia(100%) brightness(80%) contrast(90%);
-    filter: sepia(100%) brightness(80%) contrast(90%);
 }
 .slick-item:hover{
-    -webkit-filter: none;
-    filter: none;
+    -webkit-filter: sepia(100%) brightness(80%) contrast(90%);
+    filter: sepia(100%) brightness(80%) contrast(90%);
 }
 .gallery-cover{
     position: relative;
