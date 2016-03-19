@@ -437,6 +437,7 @@ ul{padding: 0}
 17. Media List Page
 18. Media Details
 19. Contact Page
+20. After Requirements 
 ZZ. Media Query For Responsive
 =========================================================================*/
 /*------------------------------------------------
@@ -459,11 +460,11 @@ ZZ. Media Query For Responsive
 }
 
 
-
 select:-moz-focusring { /* Code for Firefox */
     color: transparent;
     text-shadow: 0 0 0 #000;
     outline:none;
+    border: none;
 }
 input:-moz-focusring,
 textarea:-moz-focusring { /* Code for Firefox */
@@ -483,8 +484,8 @@ select:hover,
 select:active
 {
    outline:none;
+   border: none;
   }
-
 
 ::-moz-selection { /* Code for Firefox */
     background: #b3d4fc;
@@ -495,6 +496,9 @@ select:active
     background: #b3d4fc;
     text-shadow: none;
 }
+
+.close-button ::-moz-selection{background-color: transparent;}
+.close-button ::selection {background-color: transparent;}
 
 
 /*------------------------------------------------
@@ -959,6 +963,10 @@ tr{border:0;}
     border-bottom: 1px solid rgba(132, 96, 44, 0.4);
     display: block;
     transition: all .5s;
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -o-transition: all .5s;
+    -ms-transition: all .5s;
     color: #000;
 }
 
@@ -1009,6 +1017,7 @@ ul.sub-menu li:last-child::after{content:"•";opacity: 0}
     height: auto;
     margin: 10px auto;
 }
+
 
 .nav-ul-wrapper > ul > li:hover .nav-ul-wrapper > ul > li{width: auto;}
 
@@ -2041,7 +2050,7 @@ select.list-drop-down option,
 }
 
 /*------------------------------------------------
-|                   CSS Changing                 |
+|                  After Requirements            |                 |
 ------------------------------------------------*/
 .project-img-box:hover,
 .project-img-box:focus,
@@ -2121,7 +2130,7 @@ select.list-drop-down option,
         height: 55px;
     }
     .logo{margin-top: 10px;width:105px}
-    .close-button{top: 10px}
+    .close-button{top: 7px}
     .box-wrapper{top: 55px}
 
     .left-view-port,
@@ -2150,7 +2159,7 @@ select.list-drop-down option,
     .media-item-box{padding: 10px 0}
 
     .menu-main-wrapper{top: 70px}
-    .search-wrapper{top: 5px}
+    .search-wrapper{top: 8px}
 
     .page-text-wrapper {
         height: calc(100% - 10px) !important;
@@ -2161,6 +2170,13 @@ select.list-drop-down option,
 
     .project-top-wrapper{top: 32px}
     /*= End Height Height =*/
+
+    .project-top-wrapper {
+        margin-right: 10px;
+        top: 17px;
+        max-width: 470px;
+        overflow: hidden;
+    }
 
 }
 
@@ -2183,6 +2199,15 @@ select.list-drop-down option,
         width: -ms-calc(100% - 95px);
     }
 
+    /*.menu-footer p{line-height: 5px}*/
+    .menu-footer p {
+        line-height: 15px;
+        margin-bottom: 30px;
+        padding-bottom: 7px;
+        padding-top: 7px;
+    }
+
+    .project-top-wrapper {max-width: 300px}
 }
 
 @media (max-width: 550px){
@@ -2194,12 +2219,12 @@ select.list-drop-down option,
     	height: -ms-calc(100% - 85px);
 	}
 
-	.menu-footer p {
+	/*.menu-footer p {
 		line-height: 15px;
 	    margin-bottom: 30px;
 	    padding-bottom: 7px;
 	    padding-top: 7px;
-	}
+	}*/
 
 	.menu-footer-social-icon {margin: 0 auto 13px;}
 	.projects-nav li a{font-size: 11px}
@@ -2219,7 +2244,9 @@ select.list-drop-down option,
     }
 
     .project-info-view{
-    	width: calc(95% - 40px);
+        width: calc(100% - 30px);
+        width: -webkit-calc(100% - 30px);
+    	width: -moz-calc(100% - 30px);
     }
     .projects-nav li a {padding-left: 22px;}
 
@@ -2255,7 +2282,7 @@ select.list-drop-down option,
         margin-right: 35px;
     }
 
-
+    .project-top-wrapper {max-width: 55%;margin-right: -10px}
 }
 
 @media (max-width: 380px){
