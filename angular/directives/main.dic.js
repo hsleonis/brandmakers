@@ -112,8 +112,6 @@
             restrict: 'A',
             link: function(scope, element, attrs) {
                 element.imagesLoaded(function(){
-                        console.log("HERE");
-                        
                 }).done(function(){
                     console.log("complete");
                     $(".gallery-cover").animate({
@@ -131,7 +129,7 @@
             restrict: 'A',
             link: function (scope, element, attrs) {
                 if (scope.$last) {
-                    console.log("Here");
+                    if(!element.hasClass("ls-container"))
                     element.parent().layerSlider({
                             pauseOnHover:false,
                     });
