@@ -1441,7 +1441,9 @@ select.list-drop-down option,
     font-size:12px;
     background-repeat: no-repeat;
     background-size: 30px;
-    background-position: 0px;
+    background-position: 0px -6px;
+    display: inline-table;
+    height: 30px;
 }
 .project-list-wrapper{
     width: 100%;

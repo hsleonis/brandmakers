@@ -30,14 +30,14 @@
         };
         
         $scope.loadPages = function(){
-            //if(typeof($localStorage.pages)=='undefined'){
+            if(typeof($localStorage.pages)=='undefined'){
             $http.post(apis().jsonURL + "/allpages.json", {})
             .success(function (response) {
                     $localStorage.pages = response;
                     $scope.pages=$localStorage.pages;
             });
             return $scope.pages;
-            //}else return $localStorage.pages;
+            }else return $localStorage.pages;
         };
         
         $scope.loadDetails = function(){
@@ -102,6 +102,7 @@
         
         $scope.page = $routeParams.page;
         $scope.subpage = $routeParams.subpage;
+        $scope.pages = $scope.loadPages();
         
         if(typeof $scope.pages[$scope.page]!=='undefined'){
             $scope.pageData = $scope.pages[$scope.page];
@@ -185,12 +186,14 @@
             $scope.limit+=($scope.limit+a<b)?a:0;
             if($scope.curPage<$scope.projectPages)
             $scope.curPage++;
+            console.table([{'page':$scope.curPage,"b":b,"limit":$scope.limit}]);
         };
 
         $scope.prvPage = function(a){
             $scope.limit-=($scope.limit>=a)?a:0;
             if($scope.curPage>1)
             $scope.curPage--;
+            console.table([{'page':$scope.curPage,"limit":$scope.limit}]);
         };
         
         $scope.slickto = function(a){
