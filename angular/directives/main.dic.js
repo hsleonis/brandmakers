@@ -137,5 +137,18 @@
             }
         };
     });
+    
+    app.directive('ngCustomSelect', function () {
+        return {
+            restrict: 'A',
+            link: function (scope, element, attrs) {
+                console.info(element.context.id);
+                Select.init({
+                    selector: '#'+element.context.id,
+                    className: 'select-theme-default'
+                });
+            }
+        };
+    });
 
 })(window.angular);

@@ -68,7 +68,7 @@
         <div class="col-sm-3 list-view-port hidden-xs">
             <div class="row row-full-height">
                 <div class="list-wrapper">
-                    <select id="list-switcher" onchange="$(this).scope().listSwitcher()" class="list-drop-down">
+                    <select id="list-switcher" ng-custom-select onchange="$(this).scope().listSwitcher()" class="list-drop-down">
                         <option ng-selected="project.category!='ongoing' && project.category!='upcoming' && project.category!='completed'" value="">All</option>
                         <option ng-selected="project.category=='Ongoing'" value="ongoing">Ongoing</option>
                         <option ng-selected="project.category=='Upcoming'" value="upcoming">Upcoming</option>

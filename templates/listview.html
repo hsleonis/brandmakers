@@ -29,7 +29,7 @@
         <div class="col-sm-3 list-view-port hidden-xs">
             <div class="row row-full-height">
                 <div class="list-wrapper">
-                    <select id="page-changer" onchange="$(this).scope().pageChanger()" class="list-drop-down">
+                    <select ng-custom-select id="page-changer" onchange="$(this).scope().pageChanger()" class="list-drop-down">
                         <option ng-selected="type=='ongoing'" value="projects/ongoing">ONGOING</option>
                         <option ng-selected="type=='upcoming'" value="projects/upcoming">UPCOMING</option>
                         <option ng-selected="type=='completed'" value="projects/completed">COMPLETED</option>

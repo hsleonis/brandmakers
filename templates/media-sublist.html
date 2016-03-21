@@ -27,7 +27,7 @@
         <div class="col-sm-3 list-view-port hidden-xs">
             <div class="row row-full-height">
                 <div class="list-wrapper">
-                    <select id="page-changer" onchange="$(this).scope().pageChanger()" class="list-drop-down">
+                    <select id="page-changer" ng-custom-select onchange="$(this).scope().pageChanger()" class="list-drop-down">
                         <option ng-selected="page==option.page_data.page_slug" data-ng-repeat="option in pages" value="pages/{{option.page_data.page_slug}}">
                             {{option.page_data.page_title}}
                         </option>
