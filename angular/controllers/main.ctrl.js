@@ -81,6 +81,22 @@
         $scope.changeTitle = function(title) {
             document.title = title.toUpperCase() + " | Brand Maker";
         };
+        
+        function reloadData(){
+            $http.post(apis().jsonURL + "/project_list.json", {})
+            .success(function (response) {
+                    $localStorage.list = response.product_list;
+            });
+            $http.post(apis().jsonURL + "/allpages.json", {})
+            .success(function (response) {
+                    $localStorage.pages = response;
+            });
+            $http.post(apis().jsonURL + "/project_detail.json", {})
+            .success(function (response) {
+                    $localStorage.detail = response;
+            });
+        }
+        reloadData();
     });
 
     /******** Home control ************/

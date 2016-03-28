@@ -513,6 +513,9 @@ ul{
 html,body{
     width: 100%;
     height:100%;
+    font-size: 100%;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
 }
 
 a,
@@ -876,7 +879,7 @@ tr{border:0;}
     position: relative;
     z-index: 99;
     background: url("../img/menu-art.png") no-repeat;
-    background-position: center;
+    background-position: center top;
 }
 .menu-bg::before{
     content: "";
@@ -940,6 +943,8 @@ tr{border:0;}
     margin: 0 auto;
     text-transform: uppercase;
     display: table;
+    position: relative;
+    z-index: 20;
 }
 .nav-ul-wrapper > ul > li > a{
     width: 200px;
@@ -979,6 +984,8 @@ ul.sub-menu > li{-webkit-transition: height .5s;transition: height .5s;}
 ul.sub-menu > li{
     display: inline-block;
     padding: 0;
+    position: relative;
+    z-index: 10;
     border-bottom:1px solid rgba(0,0,0,.25);
     color: #84602c;
     margin: 0 -4px 0;
@@ -1080,6 +1087,8 @@ ul.sub-menu li:last-child::after{content:"•";opacity: 0}
     top:120px;
     height:calc(100%);
     height:-o-calc(100%);
+    height:-moz-calc(100%);
+    height:-webkit-calc(100%);
     height:-ms-calc(100%);
     position: absolute;
     left: 0;
@@ -1237,10 +1246,13 @@ ul.sub-menu li:last-child::after{content:"•";opacity: 0}
 
 .list-wrapper{
     width: 100%;
+    max-width: 320px;
     height: calc(100% - 110px);
     height: -ms-calc(100% - 110px);
+    height: -moz-calc(100% - 110px);
+    height: -webkit-calc(100% - 110px);
     height: -o-calc(100% - 110px);
-    float: left;
+    float: right;
     margin-top: 60px;
     padding-left:60px;
     position: relative;
@@ -1307,10 +1319,10 @@ select.list-drop-down option,
 }
 
 .list-wrapper a{
-    /*height:100%;*/
     display: inline-block;
     text-transform: uppercase;
     color: #CCCCCC;
+    padding-left: 1em;
     font-weight: 400;
     width:100%;
 }
@@ -1450,7 +1462,7 @@ select.list-drop-down option,
     height: auto;
     float: left;
     min-height: 330px;
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
 .list-thumbnail{
@@ -1465,6 +1477,7 @@ select.list-drop-down option,
 
 .project-list-thumbnail a{
     height: 100%;
+    padding-left: 0;
 }
 
 .project-list-thumbnail li{
@@ -1531,9 +1544,9 @@ select.list-drop-down option,
     display: table;
     text-align: center;
     border:1px solid rgba(132, 96, 44, .8);
-    -webkit-transition: all 1s;
     transition: all 1s;
-    -webkit-transition: all 1s ease;
+    -webkit-transition: all 1s;
+    -o-transition: all 1s ease;
     -moz-transition: all 1s ease;
     min-width: 310px;
     padding: 10px 15px;
@@ -1559,7 +1572,7 @@ select.list-drop-down option,
     width: 100%;
     height:25px;
     float: left;
-    margin-top:5px;
+    margin-top:10px;
     border-top: solid 1px rgba(255,255,255,.4);
 }
 .project-status p{display: inline}
@@ -1674,8 +1687,12 @@ select.list-drop-down option,
 .specification-content{
     width: 100%;
     height: calc(100% - 10px);
+    height: -webkit-calc(100% - 10px);
+    height: -moz-calc(100% - 10px);
+    height: -o-calc(100% - 10px);
     float: left;
     font-weight: 400;
+    color: #ffffff;
     position: relative;
     padding-right: 20px;
 
@@ -1711,6 +1728,7 @@ select.list-drop-down option,
     background-position: center center;
     background-size: cover;
     float: left;
+    cursor:zoom-in;
 }
 .project-item a{
     width:100%;
@@ -1919,9 +1937,12 @@ select.list-drop-down option,
     height: 100%;
 }
 .media-details-right{
-    padding: 0 20px;
+    padding: 0 15px;
     height: calc(100% - 60px);
     height: -moz-calc(100% - 60px);
+    height: -webkit-calc(100% - 60px);
+    height: -ms-calc(100% - 60px);
+    height: -o-calc(100% - 60px);
 }
 /*------------------------------------------------
 |          		   Contact Page 	             |
@@ -2017,20 +2038,32 @@ select.list-drop-down option,
 }
 
 /*------------------------------------------------
-|                  After Requirements            |                 |
+|            Style After Requirements            |                 |
 ------------------------------------------------*/
 .project-img-box:hover,
 .project-img-box:focus,
-.project-img-box:active{
-    /*outline: 1px solid #c65000;
-    outline-offset: -1px;*/
-    box-shadow: inset 0px 0px 0px 1px #c65000;
-    }
+.project-img-box:active{box-shadow: inset 0px 0px 0px 1px #c65000}
 
 /*------------------------------------------------
 |           Media Query For Responsive           |
 ------------------------------------------------*/
-@media (min-width:1400px){}
+@media (min-width:1400px){
+    .container{width: 95% !important};
+
+    .header-wrapper{
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .header .main-header-wrapper{
+        padding-left: 0;
+        padding-right: 0;
+        margin-right: 20px;
+    }
+
+    .header .container .header-wrapper{margin-left: -30px}
+    .close-button{margin-right: 15px}
+}
 
 @media (max-width:1200px){
     .project-list-thumbnail li:hover .thumbnail-lable{right: 89px;}
@@ -2157,7 +2190,8 @@ select.list-drop-down option,
     /*.menu-footer p{line-height: 5px}*/
     .menu-footer p {
         line-height: 15px;
-        margin-bottom: 30px;
+        margin-bottom: 0;
+        height: 60px;
         padding-bottom: 7px;
         padding-top: 7px;
     }
@@ -2169,15 +2203,11 @@ select.list-drop-down option,
 	.menu-bg {
     	height: calc(100% - 85px);
     	height: -o-calc(100% - 85px);
-    	height: -ms-calc(100% - 85px);
+        height: -ms-calc(100% - 85px);
+        height: -moz-calc(100% - 85px);
+    	height: -webkit-calc(100% - 85px);
 	}
-
-	/*.menu-footer p {
-		line-height: 15px;
-	    margin-bottom: 30px;
-	    padding-bottom: 7px;
-	    padding-top: 7px;
-	}*/
+    .menu-footer p{margin-bottom: 10px}
 
 	.menu-footer-social-icon {margin: 0 auto 13px;}
 	.projects-nav li a{font-size: 11px}
