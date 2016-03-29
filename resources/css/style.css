@@ -496,6 +496,23 @@ select:active
 .close-button ::-moz-selection{background-color: transparent;}
 .close-button ::selection {background-color: transparent;}
 
+/*Font Family*/
+
+.page-text h3,
+.project-info-label p,
+.projects-info p,
+.project-label,
+.project-top-wrapper,
+.select-target.select-theme-default,
+.project-explore,
+.media-details-wrapper h5,
+.at-a-glance-wrapper h5,
+.specification-wrapper h5,
+.page-text-wrapper h5,
+.project-info-view p span{
+    font-family: 'Conv_MONBAITI', sans-serif !important;
+}
+
 
 /*------------------------------------------------
 |                  Typography                    |
@@ -615,7 +632,7 @@ tr{border:0;}
     float: left;
     background-color: #231F20;
     position: relative;
-    padding: 30px 15px 10px;
+    padding: 15px 20px 15px;
     z-index: 500;
 }
 .project-info-view p{
@@ -629,7 +646,6 @@ tr{border:0;}
 .project-info-view p span{
     font-size: 16px;
     color: #EEE;
-    font-weight: 700;
     line-height: 30px;
 }
 
@@ -1386,13 +1402,14 @@ select.list-drop-down option,
     font-size:14px;
     font-weight:400;
     position: relative;
+    text-transform: uppercase;
 }
 .page-text h3::after,
 .media-details-wrapper h3::after{
     content: "";
     width: 195px;
     bottom: 0;
-    margin-left: 12px;
+    margin-left: 5px;
     height:1px;
     background-color: rgba(255,255,255,.25);
     position: absolute;
@@ -1433,7 +1450,7 @@ select.list-drop-down option,
 
 .projects-nav li.active a,
 .projects-nav li.active a:focus,
-.projects-nav li.active a:hover{background-color: transparent;color: #8b5e3c}
+.projects-nav li.active a:hover{background-color: transparent;color: #ffbf85}
 
 .projects-nav li a,
 .projects-nav li a:hover,
@@ -1597,7 +1614,9 @@ select.list-drop-down option,
     cursor: pointer;
 }
 
-.projects-nav li a:hover{color:#8B5E3C;}
+.project-status p:last-child a:last-child{margin-right: 10px}
+
+.projects-nav li a:hover{color:#ffbf85}
 /*------------------------------------------------
 |              Project Information's             |
 ------------------------------------------------*/
@@ -1628,6 +1647,62 @@ select.list-drop-down option,
     color: #bcbec0;
 }
 
+
+.media-details-wrapper ul,
+.at-a-glance-wrapper ul,
+.specification-wrapper ul,
+.page-text-wrapper ul{
+    list-style: inside disc;
+}
+
+.media-details-wrapper h5,
+.at-a-glance-wrapper h5,
+.specification-wrapper h5,
+.page-text-wrapper h5{
+    color: #ffbf85;
+    font-size: 12px;
+    text-transform: uppercase;
+    position: relative;
+}
+
+
+.media-details-wrapper h5 strong,
+.at-a-glance-wrapper h5 strong,
+.specification-wrapper h5 strong,
+.page-text-wrapper h5 strong
+.media-details-wrapper h5 b,
+.at-a-glance-wrapper h5 b,
+.specification-wrapper h5 b,
+.page-text-wrapper h5 b{
+    font-weight: 300 !important;
+    letter-spacing: 1px;
+}
+
+
+.media-details-wrapper h5::after,
+.at-a-glance-wrapper h5::after,
+.specification-wrapper h5::after,
+.page-text-wrapper h5::after{
+    background-color: rgba(255, 191, 133, 0.2);
+    margin-left: 0;
+    bottom: 0;
+    content: "";
+    height: 1px;
+    margin-left: 2px;
+    position: absolute;
+    width: 195px;
+}
+
+.media-details-wrapper ol li,
+.at-a-glance-wrapper ol li,
+.specification-wrapper ol li,
+.page-text-wrapper ol li
+{
+    padding-left: 10px !important;
+    margin-left: 5px !important;
+}
+
+
 .project-main-view-wrapper table{
     width:100%;
     font-size: 12px;
@@ -1650,11 +1725,26 @@ select.list-drop-down option,
 
 .project-main-view-wrapper td{float: left}
 .project-main-view-wrapper td:first-child{
-    width:155px;
-    min-width:155px;
+    width:175px;
     box-sizing: border-box;
     position: relative;
 }
+
+.project-top-location{position: relative;}
+
+.project-top-location::before{
+    color: #916B46;
+    content: "•";
+    float: left;
+    font-size: 15px;
+    left: -15px;
+    position: absolute;
+    line-height: 15px;
+}
+
+
+
+
 .project-main-view-wrapper th:first-child::after,
 .project-main-view-wrapper td:first-child::after{
     content: "•";
@@ -1670,8 +1760,12 @@ select.list-drop-down option,
     transform: translateY(-50%);
 }
 .project-main-view-wrapper td:last-child{
-    width:calc(100% - 155px);
-    width:-ms-calc(100% - 155px);
+    width:calc(100% - 175px);
+    width:-ms-calc(100% - 175px);
+    width:-moz-calc(100% - 175px);
+    width:-webkit-calc(100% - 175px);
+    width:-o-calc(100% - 175px);
+    padding-left: 20px;
 }
 
 /*------------------------------------------------
@@ -1692,7 +1786,7 @@ select.list-drop-down option,
     height: -o-calc(100% - 10px);
     float: left;
     font-weight: 400;
-    color: #ffffff;
+    color: #bcbec0;
     position: relative;
     padding-right: 20px;
 
@@ -1772,8 +1866,11 @@ select.list-drop-down option,
     overflow: hidden;
     left:0;
     padding: 30px 30px 0;
-    -webkit-transition: .5s all;
     transition: .5s all;
+    -webkit-transition: .5s all;
+    -moz-transition: .5s all;
+    -o-transition: .5s all;
+    -ms-transition: .5s all;
 }
 
 .projects-info p{
@@ -1818,6 +1915,7 @@ select.list-drop-down option,
     transition: 0.5s all;
     -webkit-transition: 0.5s all;
     -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
 }
 
 .tab-on{
@@ -1869,6 +1967,8 @@ select.list-drop-down option,
     width: 100%;
     height: calc(100% - 50px);
     height: -ms-calc(100% - 50px);
+    height: -moz-calc(100% - 50px);
+    height: -webkit-calc(100% - 50px);
     float: left;
     padding: 0 25px;
 }
@@ -1995,7 +2095,10 @@ select.list-drop-down option,
 	padding:0 10px 0;
 	line-height: 40px;
 	width: calc(100% - 185px);
-	width: -ms-calc(100% - 185px);
+    width: -ms-calc(100% - 185px);
+    width: -moz-calc(100% - 185px);
+    width: -webkit-calc(100% - 185px);
+	width: -o-calc(100% - 185px);
 	background-color: transparent;
 	border: 0;
 }
@@ -2044,9 +2147,27 @@ select.list-drop-down option,
 .project-img-box:focus,
 .project-img-box:active{box-shadow: inset 0px 0px 0px 1px #c65000}
 
+
 /*------------------------------------------------
 |           Media Query For Responsive           |
 ------------------------------------------------*/
+
+@media (min-width:1600px){
+
+    .list-wrapper{max-width: 340px}
+    .project-list-thumbnail li{height: 165px}
+
+    .project-list-thumbnail li:hover .thumbnail-lable{right: 157px}
+}
+
+@media (min-width:1900px){
+    .list-wrapper {max-width: 405px;}
+
+    .project-list-thumbnail li{height: 170px}
+
+    .project-list-thumbnail li:hover .thumbnail-lable{right: 200px}
+}
+
 @media (min-width:1400px){
     .container{width: 95% !important};
 
@@ -2063,6 +2184,15 @@ select.list-drop-down option,
 
     .header .container .header-wrapper{margin-left: -30px}
     .close-button{margin-right: 15px}
+
+    .project-list-thumbnail li{height: 120px}
+
+    .project-list-thumbnail li:hover .thumbnail-lable{right: 132px}
+
+    .list-wrapper{
+        padding-left: 0;
+        max-width: 270px;
+    }
 }
 
 @media (max-width:1200px){
@@ -2070,7 +2200,11 @@ select.list-drop-down option,
 }
 
 @media (max-width: 992px){
-    .project-list-wrapper{min-height: 270px;}
+    .project-list-wrapper{
+        /*min-height: 270px;*/
+        min-height: 120px;
+    }
+
     .project-list-thumbnail li{height: 80px;}
 
     .project-list-thumbnail li:hover .thumbnail-lable{right: 80px;}
@@ -2110,6 +2244,9 @@ select.list-drop-down option,
         height: 100%;
         height: calc(100% - 100px);
         height: -moz-calc(100% - 100px);
+        height: -webkit-calc(100% - 100px);
+        height: -ms-calc(100% - 100px);
+        height: -o-calc(100% - 100px);
     }
 
     .left-view-port > div{	/*For Aligning*/
@@ -2120,7 +2257,9 @@ select.list-drop-down option,
     .floor-plans .project-item{
     	width: calc(100% / 3);
     	width: -ms-calc(100% / 3);
-    	width: -o-calc(100% / 3);
+        width: -o-calc(100% / 3);
+        width: -moz-calc(100% / 3);
+    	width: -webkit-calc(100% / 3);
     }
     /*Header Height*/
     .header{
@@ -2135,6 +2274,8 @@ select.list-drop-down option,
         height: calc(100% - 55px);
         height: -o-calc(100% - 55px);
         height: -ms-calc(100% - 55px);
+        height: -moz-calc(100% - 55px);
+        height: -webkit-calc(100% - 55px);
     }
 
     .list-wrapper{
@@ -2142,6 +2283,8 @@ select.list-drop-down option,
         height:calc(100% - 35px);
         height:-o-calc(100% - 35px);
         height:-ms-calc(100% - 35px);
+        height:-moz-calc(100% - 35px);
+        height:-webkit-calc(100% - 35px);
     }
 
     .main-menu {
@@ -2157,6 +2300,9 @@ select.list-drop-down option,
     .page-text-wrapper {
         height: calc(100% - 10px) !important;
         height: -moz-calc(100% - 10px) !important;
+        height: -webkit-calc(100% - 10px) !important;
+        height: -ms-calc(100% - 10px) !important;
+        height: -o-calc(100% - 10px) !important;
         padding-top: 5px;
     }
 
@@ -2177,7 +2323,9 @@ select.list-drop-down option,
     .gallery-wrapper {
     	width: calc(100% / 2);
     	width: -ms-calc(100% / 2);
-    	width: -o-calc(100% / 2);
+        width: -o-calc(100% / 2);
+        width: -moz-calc(100% / 2);
+    	width: -webkit-calc(100% / 2);
 	}
 
     .form-item label{width: 95px;}
@@ -2185,6 +2333,8 @@ select.list-drop-down option,
         width: calc(100% - 95px);
         width: -o-calc(100% - 95px);
         width: -ms-calc(100% - 95px);
+        width: -moz-calc(100% - 95px);
+        width: -webkit-calc(100% - 95px);
     }
 
     /*.menu-footer p{line-height: 5px}*/
@@ -2222,10 +2372,15 @@ select.list-drop-down option,
         width:calc(100% - 30px);
         width:-o-calc(100% - 30px);
         width:-ms-calc(100% - 30px);
+        width:-moz-calc(100% - 30px);
+        width:-webkit-calc(100% - 30px);
     }
 
     .project-info-view{
         width: calc(100% - 30px);
+        width: -o-calc(100% - 30px);
+        width: -ms-calc(100% - 30px);
+        width: -webkit-calc(100% - 30px);
     	width: -moz-calc(100% - 30px);
     }
     .projects-nav li a {padding-left: 22px;}
@@ -2280,9 +2435,8 @@ select.list-drop-down option,
     .nav-ul-wrapper{height: 275px;}
 
     /*Header Height*/
-    .header{
-        height: 55px;
-    }
+    .header{height: 55px}
+
     .logo{margin-top: 10px;width:105px}
     .close-button{top: 7px}
     .box-wrapper{top: 55px}
@@ -2292,6 +2446,8 @@ select.list-drop-down option,
         height: calc(100% - 55px);
         height: -o-calc(100% - 55px);
         height: -ms-calc(100% - 55px);
+        height: -webkit-calc(100% - 55px);
+        height: -moz-calc(100% - 55px);
     }
 
     .list-wrapper{
@@ -2299,6 +2455,8 @@ select.list-drop-down option,
         height:calc(100% - 35px);
         height:-o-calc(100% - 35px);
         height:-ms-calc(100% - 35px);
+        height:-moz-calc(100% - 35px);
+        height:-webkit-calc(100% - 35px);
     }
 
     .main-menu {
@@ -2314,6 +2472,9 @@ select.list-drop-down option,
     .page-text-wrapper {
         height: calc(100% - 10px) !important;
         height: -moz-calc(100% - 10px) !important;
+        height: -webkit-calc(100% - 10px) !important;
+        height: -o-calc(100% - 10px) !important;
+        height: -ms-calc(100% - 10px) !important;
         padding-top: 5px;
     }
 
