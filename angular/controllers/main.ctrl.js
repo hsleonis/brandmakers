@@ -241,31 +241,41 @@
         window.closeMenu();
         $scope.logoChanger();
         
-        $scope.page = 'media';
-        $scope.subpage = $routeParams.subpage;
-        $scope.detail = $routeParams.detail;
+        var page = 'media',
+        subpage = $routeParams.subpage,
+        detailpage = $routeParams.detailpage;
+        $scope.page = page;
+        $scope.pages = $scope.loadPages();
         
-        if(typeof $scope.pages[$scope.page]!=='undefined' && typeof $routeParams.detail!=='undefined'){
-            $scope.pageData = $scope.pages[$scope.page].child_pages[$scope.subpage].child_pages[$scope.detail];
-            $scope.pageMenu = $scope.pages[$scope.page].child_pages[$scope.subpage].child_pages.menu;
-            $scope.rootTitle = $scope.pages[$scope.page].child_pages[$scope.subpage].page_data.page_title;
-            $scope.rootSlug = $scope.pages[$scope.page].child_pages[$scope.subpage].page_data.page_slug;
-        }
-        else if(typeof $scope.pages[$scope.page]!=='undefined'){
-            if(typeof $scope.pages[$scope.page].child_pages[$scope.subpage]!=='undefined'){
-                $scope.pageData = $scope.pages[$scope.page].child_pages[$scope.subpage];
-                $scope.pageMenu = $scope.pageData.child_pages.menu;
-                $scope.rootTitle = $scope.pages[$scope.page].page_data.page_title;
-                $scope.rootSlug = $scope.pages[$scope.page].child_pages[$scope.subpage].page_data.page_slug;
+        console.info(detailpage);
+        
+        if(typeof $scope.pages[page]!=='undefined'){
+            var a = $scope.pages[page];
+            
+            if(typeof a.child_pages[subpage]!=='undefined'){
+                var b = a.child_pages[subpage];
+                
+                if(typeof b.child_pages[detailpage]!=='undefined'){
+                    $scope.pageData = b.child_pages[detailpage];
+                    $scope.pageMenu = b.child_pages.menu;
+                    $scope.rootTitle = b.page_data.page_title;
+                    $scope.rootSlug = b.page_data.page_slug;
+                }
+                else {
+                        $scope.pageData = b;
+                        $scope.pageMenu = $scope.pageData.child_pages.menu;
+                        $scope.rootTitle = a.page_data.page_title;
+                        $scope.rootSlug = b.page_data.page_slug;
+                }
             }
             else {
-                $scope.pageData = $scope.pages[$scope.page];
+                $scope.pageData = a;
                 $scope.pageMenu = $scope.pageData.child_pages.menu;
-                $scope.rootTitle = $scope.pages[$scope.page].page_data.page_title;
-                $scope.rootSlug = $scope.pages[$scope.page].page_data.page_slug;
+                $scope.rootTitle = a.page_data.page_title;
+                $scope.rootSlug = a.page_data.page_slug;
             }
+            $scope.changeTitle($scope.pageData.page_data.page_title);
         }
-        $scope.changeTitle($scope.pageData.page_data.page_title);
     });
     // ========================================================== //
 })(window.angular);

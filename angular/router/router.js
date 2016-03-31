@@ -14,16 +14,16 @@ app.config(function($routeProvider,$locationProvider) {
         templateUrl : 'templates/home.html',
         controller  : 'homeController'
     })
-    .when('/pages/media', {
-        templateUrl : 'templates/media-list.html',
+    .when('/pages/media/:subpage/:detailpage', {
+        templateUrl : 'templates/media.html',
         controller  : 'mediaController'
     })
     .when('/pages/media/:subpage', {
         templateUrl : 'templates/media-sublist.html',
         controller  : 'mediaController'
     })
-    .when('/pages/media/:subpage/:detail', {
-        templateUrl : 'templates/media.html',
+    .when('/pages/media', {
+        templateUrl : 'templates/media-list.html',
         controller  : 'mediaController'
     })
     .when('/pages/:page', {
