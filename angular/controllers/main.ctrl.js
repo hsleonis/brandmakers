@@ -247,7 +247,12 @@
         $scope.page = page;
         $scope.pages = $scope.loadPages();
         
-        console.info(detailpage);
+        function setData(p,q,r,s){
+            $scope.pageData = p;
+            $scope.pageMenu = q;
+            $scope.rootTitle = r;
+            $scope.rootSlug = s;
+        }
         
         if(typeof $scope.pages[page]!=='undefined'){
             var a = $scope.pages[page];
@@ -256,23 +261,14 @@
                 var b = a.child_pages[subpage];
                 
                 if(typeof b.child_pages[detailpage]!=='undefined'){
-                    $scope.pageData = b.child_pages[detailpage];
-                    $scope.pageMenu = b.child_pages.menu;
-                    $scope.rootTitle = b.page_data.page_title;
-                    $scope.rootSlug = b.page_data.page_slug;
+                    setData(b.child_pages[detailpage], b.child_pages.menu, b.page_data.page_title, b.page_data.page_slug);
                 }
                 else {
-                        $scope.pageData = b;
-                        $scope.pageMenu = $scope.pageData.child_pages.menu;
-                        $scope.rootTitle = a.page_data.page_title;
-                        $scope.rootSlug = b.page_data.page_slug;
+                    setData(b, b.child_pages.menu, a.page_data.page_title, b.page_data.page_slug);
                 }
             }
             else {
-                $scope.pageData = a;
-                $scope.pageMenu = $scope.pageData.child_pages.menu;
-                $scope.rootTitle = a.page_data.page_title;
-                $scope.rootSlug = a.page_data.page_slug;
+                setData(a, a.child_pages.menu, a.page_data.page_title, a.page_data.page_slug);
             }
             $scope.changeTitle($scope.pageData.page_data.page_title);
         }
