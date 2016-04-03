@@ -198,18 +198,17 @@
             projectSwitch($scope.menuList,0);
         }
         
-        $scope.nxtPage = function(a,b){
+        $scope.nxtPage = function(a){
+            var b=$scope.currentList.length;
             $scope.limit+=($scope.limit+a<b)?a:0;
             if($scope.curPage<$scope.projectPages)
             $scope.curPage++;
-            console.table([{'page':$scope.curPage,"b":b,"limit":$scope.limit}]);
         };
 
         $scope.prvPage = function(a){
             $scope.limit-=($scope.limit>=a)?a:0;
             if($scope.curPage>1)
             $scope.curPage--;
-            console.table([{'page':$scope.curPage,"limit":$scope.limit}]);
         };
         
         $scope.slickto = function(a){

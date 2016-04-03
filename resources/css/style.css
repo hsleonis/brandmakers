@@ -22,6 +22,9 @@
 /* ==========================================================================
    Theme styles: opinionated defaults
    ========================================================================== */
+@viewport {
+  orientation: portrait;
+}
 
 html,body {
     color: #222;
@@ -826,8 +829,8 @@ tr{border:0;}
     color: #8B5E3C;
 }
 .project-nav-ul li::after{
-    content: ".";
-    line-height: 50px;
+    content: "•";
+    line-height: 57px;
     font-size: 16px;
 }
 .project-nav-ul li:last-child::after{content: ""}
@@ -2108,6 +2111,7 @@ select.list-drop-down option,
 	line-height: normal;
 }
 
+.btn-brand,
 .contact-wrapper input[type="submit"]{
 	width: 165px;
 	height: 30px;
@@ -2115,10 +2119,17 @@ select.list-drop-down option,
 	line-height: 30px;
 	text-align: center;
 	margin: 30px auto 0;
+    color: #FFF;
 	background-color: rgba(133,96,44,0.4);
 	border: none;
+    outline: 1px solid rgba(0,0,0,0.2);
+    outline-offset: -1px;
 }
-.contact-wrapper input[type="submit"]:hover{background-color: rgba(133,96,44,0.85)}
+.btn-brand:hover,
+.contact-wrapper input[type="submit"]:hover{
+    color: #FFF;
+    background-color: rgba(133,96,44,0.85);
+}
 
 .form-item input::-webkit-input-placeholder,
 .form-item textarea::-webkit-input-placeholder{
