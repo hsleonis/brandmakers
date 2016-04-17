@@ -72,4 +72,9 @@
         $("#layerslider").layerSlider('prev');
     });
     
+    $(document).on("click",".list-filter li", function(){
+        $(".list-filter li").removeClass('list-active');
+        $(this).addClass('list-active');
+    });
+    
 }());
