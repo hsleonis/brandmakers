@@ -347,6 +347,7 @@ class ProductController extends Controller
                 $ProductImageRel_model->is_gallery = $_POST['is_gallery'];
                 $ProductImageRel_model->is_banner = $_POST['is_banner'];
                 $ProductImageRel_model->is_hover = $_POST['is_hover'];
+                $ProductImageRel_model->is_thumbnail = $_POST['isthumbnail'];
 
                 if($ProductImageRel_model->save()){
                     $response['files'] = ['msg'=> 'Data saved successfully'];

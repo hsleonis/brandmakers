@@ -31,7 +31,8 @@ class ProductImageRel extends \yii\db\ActiveRecord
         return [
             [['product_id', 'image'], 'required'],
             [['product_id'], 'integer'],
-            [['image', 'title', 'desc'], 'string', 'max' => 255]
+            [['image', 'title', 'desc'], 'string', 'max' => 255],
+            [['is_thumbnail'],'safe']
         ];
     }
 

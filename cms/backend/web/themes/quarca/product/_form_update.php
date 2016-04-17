@@ -207,7 +207,18 @@ $this->registerJsFile(Url::base()."/files/html.sortable_product_image.js", ['dep
                                                         'options'=>['id'=>'ishover'.$key->id],
                                                         'pluginOptions'=>['threeState'=>false,'size'=>'sm']
                                                     ]);?>
-                                                    <label for="s_1">Hover?</label>
+                                                    <label for="s_1">Floor Plan?</label>
+                                                </div></div>
+                                            
+                                              <div class="col-md-6" style="padding:0;"><div style="margin-top:5px;">
+                                                    
+                                                    <?= CheckboxX::widget([
+                                                        'name'=>'s_4'.$key->id,
+                                                        'value'=>$key->is_thumbnail,
+                                                        'options'=>['id'=>'isthumbnail'.$key->id],
+                                                        'pluginOptions'=>['threeState'=>false,'size'=>'sm']
+                                                    ]);?>
+                                                    <label for="s_1">Thumbnail?</label>
                                                 </div></div>
 
                                             <div class="image_upload_cont_btn_panel col-md-12" style="padding:0;">
@@ -814,12 +825,13 @@ $this->registerJsFile(Url::base()."/files/html.sortable_product_image.js", ['dep
                         var is_gallery = $('#isgallery_'+id).val();
                         var is_banner = $('#isbanner_'+id).val();
                         var is_hover = $('#ishover'+id).val();
+                        var isthumbnail = $('#isthumbnail'+id).val();
 
                         $.ajax({
                             type : 'POST',
                             dataType : 'json',
                             url : '".Url::toRoute('product/save_product_image_details')."',
-                            data: {id:id,title:title,desc:desc,is_gallery:is_gallery,is_banner:is_banner,is_hover:is_hover},
+                            data: {id:id,title:title,desc:desc,is_gallery:is_gallery,is_banner:is_banner,is_hover:is_hover,isthumbnail:isthumbnail},
                             beforeSend : function( request ){},
                             success : function( data )
                                 { 

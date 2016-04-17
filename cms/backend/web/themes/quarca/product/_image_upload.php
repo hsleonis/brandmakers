@@ -43,7 +43,18 @@ use kartik\checkbox\CheckboxX;
                 'options'=>['id'=>'ishover'.$id],
                 'pluginOptions'=>['threeState'=>false,'size'=>'sm']
             ]);?>
-            <label for="s_1">Hover?</label>
+            <label for="s_1">Floor Plan?</label>
+        </div></div>
+        
+        <div class="col-md-6" style="padding:0;"><div style="margin-top:5px;">
+            
+            <?= CheckboxX::widget([
+                'name'=>'s_4'.$id,
+                'value'=>$model->is_thumbnail,
+                'options'=>['id'=>'isthumbnail'.$id],
+                'pluginOptions'=>['threeState'=>false,'size'=>'sm']
+            ]);?>
+            <label for="s_1">Thumbnail?</label>
         </div></div>
 
 		<div class="image_upload_cont_btn_panel col-md-12" style="padding:0;">
