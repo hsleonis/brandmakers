@@ -34,10 +34,10 @@
                         <option ng-selected="type=='upcoming'" value="projects/upcoming">UPCOMING</option>
                         <option ng-selected="type=='completed'" value="projects/completed">COMPLETED</option>
                     </select>
-                    <ul>
+                    <ul class="list-filter">
                         <li><a ng-href="projects/{{type}}#residential">RESIDENTIAL</a></li>
                         <li><a ng-href="projects/{{type}}#commercial">COMMERCIAL</a></li>
-                        <li><a ng-href="projects/{{type}}#">ALL</a></li>
+                        <li ng-class="{'list-active':true}"><a ng-href="projects/{{type}}#">ALL</a></li>
                     </ul>
 
                 </div>

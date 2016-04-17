@@ -33,9 +33,9 @@
                         </option>
                     </select>
                     <ul>
-                        <li ng-class="{'list-active':page==pageData.page_data.page_slug}">
+                        <!--<li ng-class="{'list-active':page==pageData.page_data.page_slug}">
                             <a ng-href="pages/{{page}}">{{rootTitle}}</a>
-                        </li>
+                        </li>-->
                         <li data-ng-repeat="p in pageMenu" ng-class="{'list-active':p.page_slug==pageData.page_data.page_slug}">
                             <a ng-href="pages/{{page}}/{{p.page_slug}}">{{p.page_title}}</a>
                         </li>
