@@ -91,7 +91,12 @@ class Product extends \yii\db\ActiveRecord
     {
         return $this->hasMany(ProductImageRel::className(), ['product_id' => 'id'])->andWhere(['is_banner'=>'1'])->orderBy('sort_order asc');
     }
-
+    
+    public function getImage_by_thumb_all()
+    {
+        return $this->hasMany(ProductImageRel::className(), ['product_id' => 'id'])->andWhere(['is_thumbnail'=>'1'])->orderBy('sort_order asc');
+    }
+    
     public function getImage_by_gallery_all()
     {
         return $this->hasMany(ProductImageRel::className(), ['product_id' => 'id'])->andWhere(['is_gallery'=>'1'])->orderBy('sort_order asc');
@@ -214,15 +219,28 @@ class Product extends \yii\db\ActiveRecord
             }
 
             if(!empty($value->image_by_banner_all)){
-                $j=0;
+                $j=0;   
+                    
                 foreach ($value->image_by_banner_all as $banner) {
                     if($j==0){
+
                         $options[$i]['project_image'] = Yii::$app->urlManager->createAbsoluteUrl('/').'product_uploads/thumb/'.$banner->image;
                         $options[$i]['project_image_full'] = Yii::$app->urlManager->createAbsoluteUrl('/').'product_uploads/'.$banner->image;
                     }
                 }
-            }
+                    
+              if(!empty($value->image_by_thumb_all)){
+                    $j=0;
+                        foreach ($value->image_by_thumb_all as $thumb) {
+                        if($j==0){
+                            $options[$i]['project_image'] = Yii::$app->urlManager->createAbsoluteUrl('/').'product_uploads/'.$thumb->image;
 
+                        }
+                    }
+               }
+                
+            }
+            
             $options[$i]['project_type'] = $value->project_category_rel->category_name['cat_title'];
             $options[$i]['project_category'] = $value->project_category_rel->project_category_category_self_rel['category_name']['cat_title'];
             $i++;
