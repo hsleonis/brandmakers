@@ -1,14 +1,28 @@
 <div class="container list-view box-wrapper bg-viewport">
     <div class="row row-full-height">
-        <div class="col-xs-9 left-view-port">
+        <div class="col-xs-9 left-view-port dark-background">
             <div class="row row-full-height">
                 <!-- Test View Area -->
                 <div class="page-text-wrapper">
                     <div class="page-text wow fadeIn">
-                        <h3>{{pageData.page_data.page_title}}</h3>
+                        <h3>Contact us</h3>
                         <div class="page-desc" ng-scroll>
-                            <form>
-                                
+                            <form name="contactForm" class="contact-wrapper" method="post">
+                                <div class="form-item">
+                                    <label for="user-name">Name *</label>
+                                    <input id="user-name" name="name" ng-model="query.name" placeholder="Type your name..." type="text" required>
+                                </div>
+
+                                <div class="form-item">
+                                    <label for="subject">Subject *</label>
+                                    <input id="subject" name="subject" ng-model="query.sub" placeholder="Short reason to write..." type="text" required>
+                                </div>
+
+                                <div class="form-item" style="height:140px;margin-bottom:30px">
+                                    <label for="details">Details *</label>
+                                    <textarea id="details" name="details" ng-model="query.msg" placeholder="Type here..." required></textarea>
+                                </div>
+                                <button class="btn-brand" ng-disabled="contactForm.$invalid" ng-click="mailcheck()">SUBMIT</button>
                             </form>
                         </div>
                     </div>
@@ -17,18 +31,15 @@
             </div>
         </div>
         <!-- /.left-view-port -->
-        <div class="col-xs-3 list-view-port">
+        <div class="col-sm-3 list-view-port hidden-xs">
             <div class="row row-full-height">
                 <div class="list-wrapper">
-                    <select id="page-changer" onchange="$(this).scope().pageChanger()" class="list-drop-down">
+                    <select id="page-changer" ng-custom-select onchange="$(this).scope().pageChanger()" class="list-drop-down">
                         <option ng-selected="page==option.page_data.page_slug" data-ng-repeat="option in pages" value="pages/{{option.page_data.page_slug}}">
                             {{option.page_data.page_title}}
                         </option>
                     </select>
                     <ul>
-                        <li ng-class="{'list-active':page==pageData.page_data.page_slug}">
-                            <a ng-href="pages/{{page}}">{{rootTitle}}</a>
-                        </li>
                         <li data-ng-repeat="p in pageMenu" ng-class="{'list-active':p.page_slug==pageData.page_data.page_slug}">
                             <a ng-href="pages/{{page}}/{{p.page_slug}}">{{p.page_title}}</a>
                         </li>
@@ -39,4 +50,24 @@
         </div>
         <!-- /.list-view-port -->
     </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="contactModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="contactModalLabel">Contact</h4>
+      </div>
+      <div class="modal-body">
+            Are you sure to send email?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" ng-click="sendmail(query)">Send</button>
+      </div>
+    </div>
+  </div>
 </div>

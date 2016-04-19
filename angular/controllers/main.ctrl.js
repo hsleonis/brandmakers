@@ -65,19 +65,6 @@
         $scope.pages = $scope.loadPages();
         $scope.detail = $scope.loadDetails();
         
-        $scope.sendmail = function(q){
-            alert("Please click Ok to send mail.");
-            $http.post(apis().baseURL+"/server/mail.php", {sub:'contact',name:q.name,topic:q.sub,message:q.msg,email:"info@brandmakers.com"})
-            .success(function (response) {
-                var s = response.replace(/(<\/div>|<div>|<\/p>|<p>|<\/ul>)/g, "").replace(/(<br\/>|<\/li>|<ul>)/g, "\n").replace(/<li>/g, "• ");
-                if(response=='Mail successfully sent') {
-                    $('.mail-response').html(s);
-                    //$('#enquiry-form').hide(100);
-                }
-                alert(s);
-            });
-        };
-        
         $scope.changeTitle = function(title) {
             document.title = title.toUpperCase() + " | Brand Maker";
         };
@@ -130,6 +117,31 @@
             }
         }
         $scope.changeTitle($scope.pageData.page_data.page_title);
+    });
+    
+    /******** Contact page control ************/
+    app.controller('contactController', function ($scope, $http, $routeParams, $location, $localStorage) {
+        if( $(".close-button").hasClass('close-sign'))
+        window.closeMenu();
+        $scope.logoChanger();
+        
+        $scope.mailcheck = function(){
+            $('.modal-footer button.btn-primary').show();
+            $(".modal-body").text("Are you sure to send email?");
+            $('#contactModal').modal('show');
+        };
+        
+        $scope.sendmail = function(q){
+                $('#contactModal').modal('hide');
+                $http.post(apis().baseURL+"/server/mail.php", {sub:'contact',name:q.name,topic:q.sub,message:q.msg,email:"info@brandmakers.com"})
+                .success(function (response) {
+                    $('.modal-footer button.btn-primary').hide();
+                    $(".modal-body").html(response);
+                    $('#contactModal').modal('show');
+                });
+        };
+
+        $scope.changeTitle("Contact Us");
     });
     
     /******** List control ************/

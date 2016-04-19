@@ -26,6 +26,10 @@ app.config(function($routeProvider,$locationProvider) {
         templateUrl : 'templates/media-list.html',
         controller  : 'mediaController'
     })
+    .when('/pages/contact-us', {
+        templateUrl : 'templates/contact.html',
+        controller  : 'contactController'
+    })
     .when('/pages/:page', {
         templateUrl : 'templates/page.html',
         controller  : 'pageController'

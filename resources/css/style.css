@@ -1122,6 +1122,10 @@ ul.sub-menu li:last-child::after{content:"•";opacity: 0}
     float: left;
 }
 
+.dark-background{
+    background-color: rgba(35,31,32,.75);
+}
+
 /*Project Image Gallery Thumbnails*/
 .gallery-thumbnails-wrapper{
     width:100%;
@@ -2088,8 +2092,6 @@ select.list-drop-down option,
 	right: 0;
 }
 
-
-
 .form-item input,
 .form-item textarea{
 	padding:0 10px 0;
@@ -2148,8 +2150,54 @@ select.list-drop-down option,
    color: #925b44;  
 }
 
+input.ng-invalid,
+textarea.ng-invalid{
+    box-shadow: 0 0 0 transparent;
+    border-bottom: 1px solid rgba(255,0,0,0.2);
+}
+
+.modal-dialog {
+    margin:170px auto;
+}
+
+.modal-header h4,
+.modal-content,
+.modal-footer .btn{
+    font-size: 12px;
+}
+
+.modal-header{
+    background-color: #231F20;
+    color: #FFBF85;
+}
+
+.modal-footer {
+    border-top: 0;
+    padding: 0 15px 15px;
+}
+
+.modal-footer .btn {
+    padding: 7px 20px;
+    border-radius: 0px;
+}
+
+.modal-footer .btn-primary {
+    color: #FFBF85;
+    background-color: #191311;
+    border-color: #000;
+}
+
+.modal-content {
+    border-radius: 0;
+}
+
+.modal-header .close{
+    color: #fff;
+    text-shadow: 0 1px 0 #000;
+}
+
 /*------------------------------------------------
-|            Style After Requirements            |                 |
+|            Style After Requirements            |
 ------------------------------------------------*/
 .project-img-box:hover,
 .project-img-box:focus,
@@ -2241,6 +2289,13 @@ select.list-drop-down option,
     .right-bottom-box .project-nav-wrapper{display: none}
 
 }
+
+@media (min-width:768px) {
+	.modal-dialog {
+		margin:170px auto;
+	}
+}
+
 @media (max-width: 768px){
     .right-bottom-box{margin-right:15px;}
     .media-item-text{margin-top:10px}
