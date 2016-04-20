@@ -132,13 +132,13 @@
         };
         
         $scope.sendmail = function(q){
-                $('#contactModal').modal('hide');
-                $http.post(apis().baseURL+"/server/mail.php", {sub:'contact',name:q.name,topic:q.sub,message:q.msg,email:"info@brandmakers.com"})
-                .success(function (response) {
-                    $('.modal-footer button.btn-primary').hide();
-                    $(".modal-body").html(response);
-                    $('#contactModal').modal('show');
-                });
+            $('#contactModal').modal('hide');
+            $http.post(apis().baseURL+"/server/mail.php", {sub:'contact',name:q.name,topic:q.sub,message:q.msg,email:"info@brandmakers.com"})
+            .success(function (response) {
+                $('.modal-footer button.btn-primary').hide();
+                $(".modal-body").html(response);
+                $('#contactModal').modal('show');
+            });
         };
 
         $scope.changeTitle("Contact Us");

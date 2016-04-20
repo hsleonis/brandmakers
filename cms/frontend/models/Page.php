@@ -307,6 +307,7 @@ class Page extends \yii\db\ActiveRecord
                 $options['page_data']['page_desc'] = $value->page_desc;
                 $options['page_data']['sort_order'] = $value->sort_order;
                 $options['page_data']['banner'] = "";
+                $options['sort_order'] = $value->sort_order;
 													   
                 //$options['page_types'] = $value->types;
                 //$options['page_tags'] = $value->tags;
